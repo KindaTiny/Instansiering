@@ -14,7 +14,10 @@ namespace Instansiering
 
         public override string ToString()
         {
-            return Name + City + PlayerList;
+            var result = Name + " " + City + Environment.NewLine;
+            foreach (Player p in PlayerList)
+                result += p.Name + Environment.NewLine;
+            return result;
         }
     }
 }

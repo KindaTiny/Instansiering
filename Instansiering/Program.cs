@@ -11,7 +11,7 @@ public class Test {
     
     
     public static void metode() { 
-        Game game = new Game();
+        
         
         Player player1 = new Player { Name = "Mads", Note = "...", Born = new DateTime(1998, 3, 2) };
         Player player2 = new Player { Name = "Emil", Note = "...2", Born = new DateTime(2000, 4, 25) };
@@ -28,16 +28,12 @@ public class Test {
         Team team1 = new Team { Name = "TestForsøg1", City = "skagen", PlayerList = PlayerList1, };
         Team team2 = new Team { Name = "testForsøg2", City = "Aalborg", PlayerList = PlayerList2 };
 
-
-
+        Game game1 = new Game { Team1 = team1, Team2 = team2, team1_goals = 4, team2_goals = 2 };
        
-        Console.WriteLine(team1.ToString());
+        Console.WriteLine(game1);
         Console.WriteLine();
         Console.WriteLine();
         Console.WriteLine();
-        Console.WriteLine();
-        Console.WriteLine();
-        Console.WriteLine();
-        Console.WriteLine();
+        
     }
 }  

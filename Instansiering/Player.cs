@@ -12,4 +12,6 @@ namespace Instansiering
         public DateTime Born;
         public string Note;
     }
+
+
 }
