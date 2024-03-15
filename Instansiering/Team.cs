@@ -11,7 +11,7 @@ namespace Instansiering
         public string Name;
         public string City;
         public List<Player> PlayerList;
-
+        public int Number;
         public override string ToString()
         {
             var result = Name + " " + City + Environment.NewLine;
