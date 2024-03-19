@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using System.Runtime.Versioning;
 
-public class Test {
-    
+public class Test
+{
+
     public static void Main(string[] args)
     {
-        randomMetode(); 
+        randomMetode();
     }
+
     
-    
-    public static void Metode() { 
-        
-        
+    public static void Metode()
+    {
+
+
         Player player1 = new Player { Name = "Mads", Note = "...", Born = new DateTime(1998, 3, 2) };
         Player player2 = new Player { Name = "Emil", Note = "...2", Born = new DateTime(2000, 4, 25) };
         Player player3 = new Player { Name = "Alfred", Note = "...3", Born = new DateTime(1995, 12, 11) };
@@ -20,7 +22,7 @@ public class Test {
 
         List<Player> PlayerList1 = new List<Player>();
         var PlayerList2 = new List<Player>();
-        
+
         PlayerList1.Add(player1);
         PlayerList1.Add(player2);
         PlayerList2.Add(player3);
@@ -32,9 +34,9 @@ public class Test {
         Team team2 = new Team { Name = "Brændby", City = "Ikke Brøndby", PlayerList = PlayerList2 };
 
         Game game1 = new Game { Team1 = team1, Team2 = team2, team1_goals = 4, team2_goals = 2 };
-       
+
         Console.WriteLine(game1);
-        
+
     }
     public static void randomMetode()
     {
@@ -73,27 +75,35 @@ public class Test {
         Team team2 = new Team { Name = "SønderJyske" };
         Team team3 = new Team { Name = "Vendsyssel FF" };
         Team team4 = new Team { Name = "FC Fredericia" };
-        Team team5 = new Team { Name = "Kolding IF"};
+        Team team5 = new Team { Name = "Kolding IF" };
         Team team6 = new Team { Name = "Hobro IK" };
 
-        List<Team> Kampe = new List<Team>();
-        Kampe.Add(team1);
-        Kampe.Add(team2);
-        Kampe.Add(team3);
-        Kampe.Add(team4);
-        Kampe.Add(team5);
-        Kampe.Add(team6);
-        
+        List<Team> HoldListe = new List<Team>();
+        HoldListe.Add(team1);
+        HoldListe.Add(team2);
+        HoldListe.Add(team3);
+        HoldListe.Add(team4);
+        HoldListe.Add(team5);
+        HoldListe.Add(team6);
+
         Random rnd = new Random();
         int rndresult = rnd.Next(1, 6);
         int rndresult2 = rnd.Next(1, 6);
         //VELKOMMEN TILBAGE TIL LOOPING VILLE VÆRE EFFEKTIVT
         int rndgoalresult = rnd.Next(1, 10);
         int rndgoalresult2 = rnd.Next(1, 10);
-        Console.WriteLine(Kampe[rndresult]);
-        Console.WriteLine(Kampe[rndresult2]);
-    
-
-
+        Console.WriteLine(HoldListe[rndresult]);
+        Console.WriteLine(HoldListe[rndresult2]);
+        //LAV FOR LOOPS FOR AT KUNNE ALLE KÆMPE MOD HINANDEN 5 GANGE
+        foreach (Team h in HoldListe)
+        {
+            foreach (Team m in HoldListe)
+            {
+                if (m != h)
+                {
+                    Console.WriteLine(h + "vs" + m);
+                }
+            }
+        }
     }
 }

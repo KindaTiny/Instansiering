@@ -10,13 +10,13 @@ namespace Instansiering
     {
         public string Name;
         public string City;
-        public List<Player> PlayerList;
+       public List<Player> PlayerList;
         public int Number;
         public override string ToString()
         {
             var result = Name + " " + City + Environment.NewLine;
-            foreach (Player p in PlayerList)
-                result += p.Name + Environment.NewLine;
+          foreach (Player p in PlayerList)
+               result += p.Name + Environment.NewLine;
             return result;
         }
     }
