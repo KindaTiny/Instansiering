@@ -29,14 +29,14 @@ public class Test
         PlayerList2.Add(player4);
 
 
-
-        Team team1 = new Team { Name = "FBK", City = "KøbenHavn", PlayerList = PlayerList1, };
+        /*
+       Team team1 = new Team { Name = "FBK", City = "KøbenHavn", PlayerList = PlayerList1, };
         Team team2 = new Team { Name = "Brændby", City = "Ikke Brøndby", PlayerList = PlayerList2 };
 
         Game game1 = new Game { Team1 = team1, Team2 = team2, team1_goals = 4, team2_goals = 2 };
 
         Console.WriteLine(game1);
-
+*/
     }
     public static void randomMetode()
     {
@@ -71,12 +71,12 @@ public class Test
         PlayerList6.Add(player11);
         PlayerList6.Add(player12);
         //BURDE STÆRKT FINDE UD AF AT LOOPE DET HER
-        Team team1 = new Team { Name = "Aab" };
-        Team team2 = new Team { Name = "SønderJyske" };
-        Team team3 = new Team { Name = "Vendsyssel FF" };
-        Team team4 = new Team { Name = "FC Fredericia" };
-        Team team5 = new Team { Name = "Kolding IF" };
-        Team team6 = new Team { Name = "Hobro IK" };
+        Team team1 = new Team { Name = "Aab", PlayerList = PlayerList1 };
+        Team team2 = new Team { Name = "SønderJyske", PlayerList = PlayerList2 };
+        Team team3 = new Team { Name = "Vendsyssel FF" , PlayerList = PlayerList3 };
+        Team team4 = new Team { Name = "FC Fredericia" , PlayerList = PlayerList4 };
+        Team team5 = new Team { Name = "Kolding IF", PlayerList = PlayerList5 };
+        Team team6 = new Team { Name = "Hobro IK" , PlayerList = PlayerList6  };
 
         List<Team> HoldListe = new List<Team>();
         HoldListe.Add(team1);
@@ -87,23 +87,25 @@ public class Test
         HoldListe.Add(team6);
 
         Random rnd = new Random();
-        int rndresult = rnd.Next(1, 6);
-        int rndresult2 = rnd.Next(1, 6);
+
         //VELKOMMEN TILBAGE TIL LOOPING VILLE VÆRE EFFEKTIVT
-        int rndgoalresult = rnd.Next(1, 10);
-        int rndgoalresult2 = rnd.Next(1, 10);
-        Console.WriteLine(HoldListe[rndresult]);
-        Console.WriteLine(HoldListe[rndresult2]);
+        //  Console.WriteLine(HoldListe[rndresult]);
+        //    Console.WriteLine(HoldListe[rndresult2]);
         //LAV FOR LOOPS FOR AT KUNNE ALLE KÆMPE MOD HINANDEN 5 GANGE
+        
         foreach (Team h in HoldListe)
         {
             foreach (Team m in HoldListe)
             {
                 if (m != h)
                 {
-                    Console.WriteLine(h + "vs" + m);
+                    Game game = new Game  { Team1 = h, Team2 = m, team1_goals = rnd.Next(1, 10), team2_goals = rnd.Next(1,10) };
+
+                    Console.WriteLine("hold 1 = " + h + " hold 2 = " + m + " team 1 mål = " + game.team1_goals + " team 2 mål = " + game.team2_goals);
                 }
             }
         }
+        
+        
     }
 }
