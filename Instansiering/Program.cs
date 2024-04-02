@@ -1,5 +1,6 @@
 ﻿using Instansiering;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using System.Runtime.Versioning;
 
 public class Test
@@ -10,7 +11,7 @@ public class Test
         randomMetode();
     }
 
-    
+
     public static void Metode()
     {
 
@@ -73,10 +74,10 @@ public class Test
         //BURDE STÆRKT FINDE UD AF AT LOOPE DET HER
         Team team1 = new Team { Name = "Aab", PlayerList = PlayerList1 };
         Team team2 = new Team { Name = "SønderJyske", PlayerList = PlayerList2 };
-        Team team3 = new Team { Name = "Vendsyssel FF" , PlayerList = PlayerList3 };
-        Team team4 = new Team { Name = "FC Fredericia" , PlayerList = PlayerList4 };
+        Team team3 = new Team { Name = "Vendsyssel FF", PlayerList = PlayerList3 };
+        Team team4 = new Team { Name = "FC Fredericia", PlayerList = PlayerList4 };
         Team team5 = new Team { Name = "Kolding IF", PlayerList = PlayerList5 };
-        Team team6 = new Team { Name = "Hobro IK" , PlayerList = PlayerList6  };
+        Team team6 = new Team { Name = "Hobro IK", PlayerList = PlayerList6 };
 
         List<Team> HoldListe = new List<Team>();
         HoldListe.Add(team1);
@@ -91,21 +92,58 @@ public class Test
         //VELKOMMEN TILBAGE TIL LOOPING VILLE VÆRE EFFEKTIVT
         //  Console.WriteLine(HoldListe[rndresult]);
         //    Console.WriteLine(HoldListe[rndresult2]);
+
+
         //LAV FOR LOOPS FOR AT KUNNE ALLE KÆMPE MOD HINANDEN 5 GANGE
-        
+        //        Game game1 = new Game();
+        List<Game> Turnering = new List<Game>();
+
         foreach (Team h in HoldListe)
         {
             foreach (Team m in HoldListe)
             {
                 if (m != h)
                 {
-                    Game game = new Game  { Team1 = h, Team2 = m, team1_goals = rnd.Next(1, 10), team2_goals = rnd.Next(1,10) };
+                    Game game = new Game { Team1 = h, Team2 = m, team1_goals = rnd.Next(1, 10), team2_goals = rnd.Next(1, 10) };
+                    Turnering.Add(game);
 
-                    Console.WriteLine("hold 1 = " + h + " hold 2 = " + m + " team 1 mål = " + game.team1_goals + " team 2 mål = " + game.team2_goals);
+                    // Console.WriteLine(h.Name + ", " + m.Name + ", T1M = " + game.team1_goals + ", T2M = " + game.team2_goals);
+
                 }
             }
         }
+        List<Statistik> hold_statistik = new List<Statistik>();
+
+        foreach (Team m in HoldListe)
+        {
+            Statistik s = new Statistik { Statistik_team = m };
+            hold_statistik.Add(s);
+            Console.Write(s);    
+        }
         
         
+        //initializier vores hold først, så brug Foreach loop og gå igennem gamesne  (g) hvor du indsætter per                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  };
+            foreach (Game g in Turnering) 
+        {
+            Console.WriteLine(g.Team1 + " " + g.Team2);
+
+            var team1_stat_obj = hold_statistik.Find(s => s.Statistik_team == g.Team1);
+            var team2_stat_obj = hold_statistik.Find(s => s.Statistik_team == g.Team2);
+
+            team1_stat_obj.K++;
+            team2_stat_obj.K++;
+            team1_stat_obj.Pscore = g.team1_goals;
+
+
+    //        team2_stat_obj.Pscore = g.team2_goals;
+
+        }
+
+        foreach (Statistik s in hold_statistik)
+        {
+            Console.Write(s);
+        }
+
+
     }
 }
