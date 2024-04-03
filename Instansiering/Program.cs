@@ -1,4 +1,5 @@
 ﻿using Instansiering;
+using System.Collections;
 using System.Collections.Generic;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.Versioning;
@@ -120,27 +121,50 @@ public class Test
             hold_statistik.Add(s);
             Console.Write(s);    
         }
-        
-        
+     
+
         //initializier vores hold først, så brug Foreach loop og gå igennem gamesne  (g) hvor du indsætter per                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  };
-            foreach (Game g in Turnering) 
+        foreach (Game g in Turnering) 
         {
             Console.WriteLine(g.Team1 + " " + g.Team2);
-
+            
             var team1_stat_obj = hold_statistik.Find(s => s.Statistik_team == g.Team1);
             var team2_stat_obj = hold_statistik.Find(s => s.Statistik_team == g.Team2);
-
             team1_stat_obj.K++;
             team2_stat_obj.K++;
-            team1_stat_obj.Pscore = g.team1_goals;
+            team1_stat_obj.Pscore = team1_stat_obj.Pscore + g.team1_goals;
+            team1_stat_obj.Mscore = team1_stat_obj.Mscore + g.team2_goals;
+            team2_stat_obj.Pscore = team2_stat_obj.Pscore + g.team2_goals;
+            team2_stat_obj.Mscore = team2_stat_obj.Mscore + g.team1_goals;
+            if (g.team1_goals > g.team2_goals)
+            {
+                team1_stat_obj.V++;
+                team1_stat_obj.Point+= 3;
+                team2_stat_obj.T++;
+            }
+            else if (g.team1_goals == g.team2_goals)
+            {
+                team1_stat_obj.U++;
+                team2_stat_obj.U++;
+                team1_stat_obj.Point++;
+                team2_stat_obj.Point++;
+            }
+            else 
+            {
+                team2_stat_obj.V++;
+                team2_stat_obj.Point+= 3;
+                team1_stat_obj.T++;
+            }
+           ;
+           
 
-
-    //        team2_stat_obj.Pscore = g.team2_goals;
+            //                                         team2_stat_obj.Pscore = g.team2_goals;
 
         }
-
-        foreach (Statistik s in hold_statistik)
+        List<Statistik> SortedListS = hold_statistik.OrderByDescending(o => o.Point).ToList();
+        foreach (Statistik s in SortedListS)
         {
+
             Console.Write(s);
         }
 

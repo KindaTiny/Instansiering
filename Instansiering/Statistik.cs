@@ -20,7 +20,7 @@ namespace Instansiering
 
         public override string ToString()
         {
-            var result = Statistik_team + " " + K + " " + V + " " + U + " " + T + " " + Pscore + " " + Mscore + Environment.NewLine;
+            var result = Statistik_team + " " + K + " " + V + " " + U + " " + T + " " + Pscore + " " + Mscore + " " + Point + Environment.NewLine;
             return result;
         }
     }
