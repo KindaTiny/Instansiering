@@ -79,7 +79,11 @@ public class Test
         Team team4 = new Team { Name = "FC Fredericia", PlayerList = PlayerList4 };
         Team team5 = new Team { Name = "Kolding IF", PlayerList = PlayerList5 };
         Team team6 = new Team { Name = "Hobro IK", PlayerList = PlayerList6 };
+        Turnering ts = new Turnering();
+        ts.Turnerings();
 
+        
+        /*
         List<Team> HoldListe = new List<Team>();
         HoldListe.Add(team1);
         HoldListe.Add(team2);
@@ -87,7 +91,7 @@ public class Test
         HoldListe.Add(team4);
         HoldListe.Add(team5);
         HoldListe.Add(team6);
-
+        
         Random rnd = new Random();
 
         //VELKOMMEN TILBAGE TIL LOOPING VILLE VÆRE EFFEKTIVT
@@ -97,7 +101,7 @@ public class Test
 
         //LAV FOR LOOPS FOR AT KUNNE ALLE KÆMPE MOD HINANDEN 5 GANGE
         //        Game game1 = new Game();
-        List<Game> Turnering = new List<Game>();
+        List<Game> TurneringSL = new List<Game>();
 
         foreach (Team h in HoldListe)
         {
@@ -113,7 +117,7 @@ public class Test
                 }
             }
         }
-        List<Statistik> hold_statistik = new List<Statistik>();
+      List<Statistik> hold_statistik = new List<Statistik>();
 
         foreach (Team m in HoldListe)
         {
@@ -124,7 +128,7 @@ public class Test
      
 
         //initializier vores hold først, så brug Foreach loop og gå igennem gamesne  (g) hvor du indsætter per                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  };
-        foreach (Game g in Turnering) 
+       foreach (Game g in Turnering) 
         {
             Console.WriteLine(g.Team1 + " " + g.Team2);
             
@@ -156,11 +160,10 @@ public class Test
                 team1_stat_obj.T++;
             }
            ;
-           
-
-            //                                         team2_stat_obj.Pscore = g.team2_goals;
+         //team2_stat_obj.Pscore = g.team2_goals;
 
         }
+        
         List<Statistik> SortedListS = hold_statistik.OrderByDescending(o => o.Point).ToList();
         foreach (Statistik s in SortedListS)
         {
@@ -168,6 +171,7 @@ public class Test
             Console.Write(s);
         }
 
-
+        //unit test, entity framework
+ */
     }
 }
