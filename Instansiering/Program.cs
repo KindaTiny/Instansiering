@@ -1,6 +1,7 @@
 ﻿using Instansiering;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.Versioning;
 
@@ -79,11 +80,7 @@ public class Test
         Team team4 = new Team { Name = "FC Fredericia", PlayerList = PlayerList4 };
         Team team5 = new Team { Name = "Kolding IF", PlayerList = PlayerList5 };
         Team team6 = new Team { Name = "Hobro IK", PlayerList = PlayerList6 };
-        Turnering ts = new Turnering();
-        ts.Turnerings();
-
-        
-        /*
+     
         List<Team> HoldListe = new List<Team>();
         HoldListe.Add(team1);
         HoldListe.Add(team2);
@@ -101,7 +98,7 @@ public class Test
 
         //LAV FOR LOOPS FOR AT KUNNE ALLE KÆMPE MOD HINANDEN 5 GANGE
         //        Game game1 = new Game();
-        List<Game> TurneringSL = new List<Game>();
+        List<Game> TurneringTTT = new List<Game>();
 
         foreach (Team h in HoldListe)
         {
@@ -110,7 +107,7 @@ public class Test
                 if (m != h)
                 {
                     Game game = new Game { Team1 = h, Team2 = m, team1_goals = rnd.Next(1, 10), team2_goals = rnd.Next(1, 10) };
-                    Turnering.Add(game);
+                    TurneringTTT.Add(game);
 
                     // Console.WriteLine(h.Name + ", " + m.Name + ", T1M = " + game.team1_goals + ", T2M = " + game.team2_goals);
 
@@ -128,7 +125,7 @@ public class Test
      
 
         //initializier vores hold først, så brug Foreach loop og gå igennem gamesne  (g) hvor du indsætter per                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  };
-       foreach (Game g in Turnering) 
+       foreach (Game g in TurneringTTT) 
         {
             Console.WriteLine(g.Team1 + " " + g.Team2);
             
@@ -172,6 +169,5 @@ public class Test
         }
 
         //unit test, entity framework
- */
     }
 }
