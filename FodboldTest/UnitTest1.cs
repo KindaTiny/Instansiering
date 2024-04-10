@@ -13,5 +13,10 @@ namespace FodboldTest
             players1.Add(new Player());
             Assert.Equal(2, (players1.Count));
         }
+        [Fact]
+        public void Kamp1()
+        {
+            
+        }
     }
 }

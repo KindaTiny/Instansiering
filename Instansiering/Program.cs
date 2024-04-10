@@ -7,10 +7,32 @@ using System.Runtime.Versioning;
 
 public class Test
 {
-
+   
     public static void Main(string[] args)
     {
-        randomMetode();
+      
+        Team DK = new Team { Name = "DK" };
+        Team Sverige = new Team { Name = "Sverige" };
+        Team BR = new Team { Name = "Brasilien" };
+        List<Team> Teams = new List<Team>();
+        Teams.Add(DK);
+        Teams.Add(Sverige);
+        Teams.Add(BR);
+        
+        Game game1 = new Game {Team1 = DK, Team2 = Sverige, Team1_goals = 3, Team2_goals = 1,};
+        Game game2 = new Game {Team1 = DK, Team2 = BR, Team1_goals = 4, Team2_goals = 5,};
+        Game game3 = new Game { Team1 = Sverige, Team2 = BR, Team1_goals = 2, Team2_goals= 1,};
+        
+        Turnering Tur = new Turnering(Teams);
+        
+        Tur.Register(game1);
+        Tur.Register(game2);
+        Tur.Register(game3);
+        
+        Tur.TTurnering();
+        
+        
+
     }
 
 
@@ -35,7 +57,6 @@ public class Test
         /*
        Team team1 = new Team { Name = "FBK", City = "KøbenHavn", PlayerList = PlayerList1, };
         Team team2 = new Team { Name = "Brændby", City = "Ikke Brøndby", PlayerList = PlayerList2 };
-
         Game game1 = new Game { Team1 = team1, Team2 = team2, team1_goals = 4, team2_goals = 2 };
 
         Console.WriteLine(game1);
@@ -106,10 +127,10 @@ public class Test
             {
                 if (m != h)
                 {
-                    Game game = new Game { Team1 = h, Team2 = m, team1_goals = rnd.Next(1, 10), team2_goals = rnd.Next(1, 10) };
+                    Game game = new Game { Team1 = h, Team2 = m, Team1_goals = rnd.Next(1, 10), Team2_goals = rnd.Next(1, 10) };
                     TurneringTTT.Add(game);
 
-                    // Console.WriteLine(h.Name + ", " + m.Name + ", T1M = " + game.team1_goals + ", T2M = " + game.team2_goals);
+                    // Console.WriteLine(h.Name + ", " + m.Name + ", T1M = " + game.Team1_goals + ", T2M = " + game.Team2_goals);
 
                 }
             }
@@ -133,17 +154,17 @@ public class Test
             var team2_stat_obj = hold_statistik.Find(s => s.Statistik_team == g.Team2);
             team1_stat_obj.K++;
             team2_stat_obj.K++;
-            team1_stat_obj.Pscore = team1_stat_obj.Pscore + g.team1_goals;
-            team1_stat_obj.Mscore = team1_stat_obj.Mscore + g.team2_goals;
-            team2_stat_obj.Pscore = team2_stat_obj.Pscore + g.team2_goals;
-            team2_stat_obj.Mscore = team2_stat_obj.Mscore + g.team1_goals;
-            if (g.team1_goals > g.team2_goals)
+            team1_stat_obj.Pscore = team1_stat_obj.Pscore + g.Team1_goals;
+            team1_stat_obj.Mscore = team1_stat_obj.Mscore + g.Team2_goals;
+            team2_stat_obj.Pscore = team2_stat_obj.Pscore + g.Team2_goals;
+            team2_stat_obj.Mscore = team2_stat_obj.Mscore + g.Team1_goals;
+            if (g.Team1_goals > g.Team2_goals)
             {
                 team1_stat_obj.V++;
                 team1_stat_obj.Point+= 3;
                 team2_stat_obj.T++;
             }
-            else if (g.team1_goals == g.team2_goals)
+            else if (g.Team1_goals == g.Team2_goals)
             {
                 team1_stat_obj.U++;
                 team2_stat_obj.U++;
@@ -155,8 +176,7 @@ public class Test
                 team2_stat_obj.V++;
                 team2_stat_obj.Point+= 3;
                 team1_stat_obj.T++;
-            }
-           ;
+            };
          //team2_stat_obj.Pscore = g.team2_goals;
 
         }
