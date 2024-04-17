@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,7 +10,7 @@ namespace Instansiering
     public class Turnering
     {
         public List<Game> TurneringSpil;
-        public List<Team> TurneringHold {  get; set; }
+        public List<Team> TurneringHold { get; set; }
         List<Statistik> hold_statistik = new List<Statistik>();
 
         public Turnering(List<Team> mylist)
@@ -22,8 +23,25 @@ namespace Instansiering
         {
             TurneringSpil.Add(g);
         }
-        public void TTurnering()
-        {       
+        public void WriteTurnering()
+        {
+            List<Statistik> SortedListS = hold_statistik.OrderByDescending(o => o.Point).ToList();
+            foreach (Statistik s in SortedListS)
+            {
+
+                Console.Write(s);
+            };
+
+        }
+        public List<Statistik> TurneringTest()
+        {
+
+            foreach (Team m in TurneringHold)
+            {
+                Statistik s = new Statistik { Statistik_team = m };
+                hold_statistik.Add(s);
+                Console.Write(s);
+            }
             foreach (Game g in TurneringSpil)
             {
                 {
@@ -55,13 +73,20 @@ namespace Instansiering
                         team2_stat_obj.V++;
                         team2_stat_obj.Point += 3;
                         team1_stat_obj.T++;
-                    };
-                    //team2_stat_obj.Pscore = g.team2_goals;
-
+                    }
                 }
             }
-       } 
-        
+            return hold_statistik;
+        }
+        public void pointopsæt()
+        {
+            List<Statistik> SortedListS = hold_statistik.OrderByDescending(o => o.Point).ToList();
+            foreach (Statistik s in SortedListS)
+            {
+
+                Console.Write(s);
+            }
+        }
     }
 }
 

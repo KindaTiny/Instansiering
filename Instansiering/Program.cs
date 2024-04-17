@@ -5,12 +5,14 @@ using System.Net.Http.Headers;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.Versioning;
 
+
 public class Test
-{
-   
+{ 
     public static void Main(string[] args)
-    {
-      
+   {
+
+
+
         Team DK = new Team { Name = "DK" };
         Team Sverige = new Team { Name = "Sverige" };
         Team BR = new Team { Name = "Brasilien" };
@@ -18,27 +20,26 @@ public class Test
         Teams.Add(DK);
         Teams.Add(Sverige);
         Teams.Add(BR);
-        
-        Game game1 = new Game {Team1 = DK, Team2 = Sverige, Team1_goals = 3, Team2_goals = 1,};
-        Game game2 = new Game {Team1 = DK, Team2 = BR, Team1_goals = 4, Team2_goals = 5,};
-        Game game3 = new Game { Team1 = Sverige, Team2 = BR, Team1_goals = 2, Team2_goals= 1,};
+        //List<Game> games = new List<Game>();
+        Game game1 = new Game {Team1 = DK, Team2 = Sverige, Team1_goals = 2, Team2_goals = 4,};
+        Game game2 = new Game {Team1 = DK, Team2 = BR, Team1_goals = 5, Team2_goals = 3,};
+        Game game3 = new Game { Team1 = Sverige, Team2 = BR, Team1_goals = 3, Team2_goals= 2,};
         
         Turnering Tur = new Turnering(Teams);
+   
         
         Tur.Register(game1);
         Tur.Register(game2);
         Tur.Register(game3);
-        
-        Tur.TTurnering();
-        
-        
 
+        Tur.TurneringTest();
+        Tur.pointopsæt();
+        
+ 
     }
-
-
     public static void Metode()
     {
-
+        
 
         Player player1 = new Player { Name = "Mads", Note = "...", Born = new DateTime(1998, 3, 2) };
         Player player2 = new Player { Name = "Emil", Note = "...2", Born = new DateTime(2000, 4, 25) };
@@ -54,13 +55,13 @@ public class Test
         PlayerList2.Add(player4);
 
 
-        /*
+    
        Team team1 = new Team { Name = "FBK", City = "KøbenHavn", PlayerList = PlayerList1, };
         Team team2 = new Team { Name = "Brændby", City = "Ikke Brøndby", PlayerList = PlayerList2 };
-        Game game1 = new Game { Team1 = team1, Team2 = team2, team1_goals = 4, team2_goals = 2 };
+        Game game1 = new Game { Team1 = team1, Team2 = team2, Team1_goals = 4, Team2_goals = 2 };
 
         Console.WriteLine(game1);
-*/
+
     }
     public static void randomMetode()
     {
@@ -105,7 +106,7 @@ public class Test
         List<Team> HoldListe = new List<Team>();
         HoldListe.Add(team1);
         HoldListe.Add(team2);
-        HoldListe.Add(team3);
+        HoldListe.Add(team3);                                                                                                                                                                                                                                                                                                                                                                                                            
         HoldListe.Add(team4);
         HoldListe.Add(team5);
         HoldListe.Add(team6);
@@ -189,5 +190,7 @@ public class Test
         }
 
         //unit test, entity framework
+
     }
+
 }
