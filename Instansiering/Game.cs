@@ -13,15 +13,6 @@ namespace Instansiering
 
         public int Team1_goals;
         public int Team2_goals;
-
-        /*//V1 
-       public override string ToString()
-       {
-           var result = Team1 + "), // " + Team2 + "), T1M = " + team1_goals + ", T2M = " + team2_goals + Environment.NewLine;
-           return result;
-       }
-       */
-        //V2
         public override string ToString()
         {
             var result = Team1 + ", " + Team2 + ", T1M = " + Team1_goals + ", T2M = " + Team2_goals + Environment.NewLine;

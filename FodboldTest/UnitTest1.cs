@@ -44,7 +44,7 @@ namespace FodboldTest
             int TopPoints = statistiks[0].Point;
             Team BundHold = statistiks[2].Statistik_team;
             int BundPoints = statistiks[2].Point;
-            int SverigeScoringer = statistiks[0].Pscore; 
+            int SverigeScoringer = statistiks[0].scoring; 
 
             Assert.Equal(Teams.Count, statistiks.Count);
 

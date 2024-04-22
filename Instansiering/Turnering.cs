@@ -38,30 +38,30 @@ namespace Instansiering
 
                     var team1_stat_obj = hold_statistik.Find(s => s.Statistik_team == g.Team1);
                     var team2_stat_obj = hold_statistik.Find(s => s.Statistik_team == g.Team2);
-                    team1_stat_obj.K++;
-                    team2_stat_obj.K++;
-                    team1_stat_obj.Pscore = team1_stat_obj.Pscore + g.Team1_goals;
+                    team1_stat_obj.Kampe++;
+                    team2_stat_obj.Kampe++;
+                    team1_stat_obj.scoring = team1_stat_obj.scoring + g.Team1_goals;
                     team1_stat_obj.Mscore = team1_stat_obj.Mscore + g.Team2_goals;
-                    team2_stat_obj.Pscore = team2_stat_obj.Pscore + g.Team2_goals;
+                    team2_stat_obj.scoring = team2_stat_obj.scoring + g.Team2_goals;
                     team2_stat_obj.Mscore = team2_stat_obj.Mscore + g.Team1_goals;
                     if (g.Team1_goals > g.Team2_goals)
                     {
-                        team1_stat_obj.V++;
+                        team1_stat_obj.VundneKampe++;
                         team1_stat_obj.Point += 3;
-                        team2_stat_obj.T++;
+                        team2_stat_obj.TabteKampe++;
                     }
                     else if (g.Team1_goals == g.Team2_goals)
                     {
-                        team1_stat_obj.U++;
-                        team2_stat_obj.U++;
+                        team1_stat_obj.Uafgjordt++;
+                        team2_stat_obj.Uafgjordt++;
                         team1_stat_obj.Point++;
                         team2_stat_obj.Point++;
                     }
                     else
                     {
-                        team2_stat_obj.V++;
+                        team2_stat_obj.VundneKampe++;
                         team2_stat_obj.Point += 3;
-                        team1_stat_obj.T++;
+                        team1_stat_obj.TabteKampe++;
                     }
                     hold_statistik = hold_statistik.OrderByDescending(o => o.Point).ToList();
                     foreach (Statistik s in hold_statistik)
