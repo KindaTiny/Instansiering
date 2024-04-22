@@ -5,13 +5,13 @@ namespace FodboldTest
 {
     public class UnitTest1
     {
-        
-        
+
+
         [Fact]
         public void HoldSpillere()
         {
             List<Player> players1 = new List<Player>();
-            players1.Add(new Player()); 
+            players1.Add(new Player());
             players1.Add(new Player());
             Assert.Equal(2, (players1.Count));
         }
@@ -26,7 +26,6 @@ namespace FodboldTest
             Teams.Add(Sverige);
             Teams.Add(BR);
 
-            List<Statistik> statistiks = new List<Statistik>();
             //List<Game> games = new List<Game>();
             Game game1 = new Game { Team1 = DK, Team2 = Sverige, Team1_goals = 2, Team2_goals = 4, };
             Game game2 = new Game { Team1 = DK, Team2 = BR, Team1_goals = 5, Team2_goals = 3, };
@@ -38,14 +37,35 @@ namespace FodboldTest
             Tur.Register(game2);
             Tur.Register(game3);
 
-           statistiks = Tur.TurneringTest();
+            List<Statistik> statistiks = Tur.TurneringTest();
 
-            Tur.pointopsæt();
+
+            Team tophold = statistiks[0].Statistik_team;
+            int TopPoints = statistiks[0].Point;
+            Team BundHold = statistiks[2].Statistik_team;
+            int BundPoints = statistiks[2].Point;
+            int SverigeScoringer = statistiks[0].Pscore; 
 
             Assert.Equal(Teams.Count, statistiks.Count);
-            Assert.Equal()
-           
-         
+
+            Assert.Equal(Sverige, tophold);
+
+            Assert.Equal(6, TopPoints);
+
+            Assert.Equal(BR, BundHold);
+
+            Assert.Equal(0, BundPoints);
+            
+            Assert.Equal(7, SverigeScoringer);
+        
+
+
+
+
+
+
+
+
         }
     }
 }

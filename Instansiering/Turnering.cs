@@ -12,7 +12,6 @@ namespace Instansiering
         public List<Game> TurneringSpil;
         public List<Team> TurneringHold { get; set; }
         List<Statistik> hold_statistik = new List<Statistik>();
-
         public Turnering(List<Team> mylist)
         {
             TurneringHold = mylist;
@@ -22,16 +21,6 @@ namespace Instansiering
         public void Register(Game g)
         {
             TurneringSpil.Add(g);
-        }
-        public void WriteTurnering()
-        {
-            List<Statistik> SortedListS = hold_statistik.OrderByDescending(o => o.Point).ToList();
-            foreach (Statistik s in SortedListS)
-            {
-
-                Console.Write(s);
-            };
-
         }
         public List<Statistik> TurneringTest()
         {
@@ -74,18 +63,16 @@ namespace Instansiering
                         team2_stat_obj.Point += 3;
                         team1_stat_obj.T++;
                     }
+                    hold_statistik = hold_statistik.OrderByDescending(o => o.Point).ToList();
+                    foreach (Statistik s in hold_statistik)
+                    {
+
+
+                        Console.Write(s);
+                    }
                 }
             }
             return hold_statistik;
-        }
-        public void pointopsæt()
-        {
-            List<Statistik> SortedListS = hold_statistik.OrderByDescending(o => o.Point).ToList();
-            foreach (Statistik s in SortedListS)
-            {
-
-                Console.Write(s);
-            }
         }
     }
 }

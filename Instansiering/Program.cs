@@ -33,11 +33,11 @@ public class Test
         Tur.Register(game3);
 
         Tur.TurneringTest();
-        Tur.pointopsæt();
+     
         
  
     }
-    public static void Metode()
+    public static void EtGameSetup()
     {
         
 
@@ -63,7 +63,7 @@ public class Test
         Console.WriteLine(game1);
 
     }
-    public static void randomMetode()
+    public static void SimpelTurSetup()
     {
         Player player1 = new Player { Name = "Mads", Note = "...1", Born = new DateTime(1998, 3, 2) };
         Player player2 = new Player { Name = "Emil", Note = "...2", Born = new DateTime(2000, 4, 25) };
@@ -77,31 +77,31 @@ public class Test
         Player player10 = new Player { Name = "Alfred", Note = "...10", Born = new DateTime(2000, 1, 25) };
         Player player11 = new Player { Name = "August", Note = "...10", Born = new DateTime(2000, 1, 25) };
         Player player12 = new Player { Name = "December", Note = "...10", Born = new DateTime(2000, 1, 25) };
-        List<Player> PlayerList1 = new List<Player>();
-        List<Player> PlayerList2 = new List<Player>();
-        List<Player> PlayerList3 = new List<Player>();
-        List<Player> PlayerList4 = new List<Player>();
-        List<Player> PlayerList5 = new List<Player>();
-        List<Player> PlayerList6 = new List<Player>();
-        PlayerList1.Add(player1);
-        PlayerList1.Add(player2);
-        PlayerList2.Add(player3);
-        PlayerList2.Add(player4);
-        PlayerList3.Add(player5);
-        PlayerList3.Add(player6);
-        PlayerList4.Add(player7);
-        PlayerList4.Add(player8);
-        PlayerList5.Add(player9);
-        PlayerList5.Add(player10);
-        PlayerList6.Add(player11);
-        PlayerList6.Add(player12);
+        List<Player> AabPlayers = new List<Player>();
+        List<Player> SønderJyskePlayers = new List<Player>();
+        List<Player> VendsysselPlayers = new List<Player>();
+        List<Player> FCFredericicaPlayers = new List<Player>();
+        List<Player> KoldingPlayers = new List<Player>();
+        List<Player> HobroPlayers = new List<Player>();
+        AabPlayers.Add(player1);
+        AabPlayers.Add(player2);
+        SønderJyskePlayers.Add(player3);
+        SønderJyskePlayers.Add(player4);
+        VendsysselPlayers.Add(player5);
+        VendsysselPlayers.Add(player6);
+        FCFredericicaPlayers.Add(player7);
+        FCFredericicaPlayers.Add(player8);
+        KoldingPlayers.Add(player9);
+        KoldingPlayers.Add(player10);
+        HobroPlayers.Add(player11);
+        HobroPlayers.Add(player12);
         //BURDE STÆRKT FINDE UD AF AT LOOPE DET HER
-        Team team1 = new Team { Name = "Aab", PlayerList = PlayerList1 };
-        Team team2 = new Team { Name = "SønderJyske", PlayerList = PlayerList2 };
-        Team team3 = new Team { Name = "Vendsyssel FF", PlayerList = PlayerList3 };
-        Team team4 = new Team { Name = "FC Fredericia", PlayerList = PlayerList4 };
-        Team team5 = new Team { Name = "Kolding IF", PlayerList = PlayerList5 };
-        Team team6 = new Team { Name = "Hobro IK", PlayerList = PlayerList6 };
+        Team team1 = new Team { Name = "Aab", PlayerList = AabPlayers };
+        Team team2 = new Team { Name = "SønderJyske", PlayerList = SønderJyskePlayers };
+        Team team3 = new Team { Name = "Vendsyssel FF", PlayerList = VendsysselPlayers };
+        Team team4 = new Team { Name = "FC Fredericia", PlayerList = FCFredericicaPlayers };
+        Team team5 = new Team { Name = "Kolding IF", PlayerList = KoldingPlayers };
+        Team team6 = new Team { Name = "Hobro IK", PlayerList = HobroPlayers };
      
         List<Team> HoldListe = new List<Team>();
         HoldListe.Add(team1);
@@ -120,7 +120,7 @@ public class Test
 
         //LAV FOR LOOPS FOR AT KUNNE ALLE KÆMPE MOD HINANDEN 5 GANGE
         //        Game game1 = new Game();
-        List<Game> TurneringTTT = new List<Game>();
+        List<Game> TurneringSpil = new List<Game>();
 
         foreach (Team h in HoldListe)
         {
@@ -129,7 +129,7 @@ public class Test
                 if (m != h)
                 {
                     Game game = new Game { Team1 = h, Team2 = m, Team1_goals = rnd.Next(1, 10), Team2_goals = rnd.Next(1, 10) };
-                    TurneringTTT.Add(game);
+                    TurneringSpil.Add(game);
 
                     // Console.WriteLine(h.Name + ", " + m.Name + ", T1M = " + game.Team1_goals + ", T2M = " + game.Team2_goals);
 
@@ -147,7 +147,7 @@ public class Test
      
 
         //initializier vores hold først, så brug Foreach loop og gå igennem gamesne  (g) hvor du indsætter per                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  };
-       foreach (Game g in TurneringTTT) 
+       foreach (Game g in TurneringSpil) 
         {
             Console.WriteLine(g.Team1 + " " + g.Team2);
             
@@ -185,7 +185,7 @@ public class Test
         List<Statistik> SortedListS = hold_statistik.OrderByDescending(o => o.Point).ToList();
         foreach (Statistik s in SortedListS)
         {
-
+             
             Console.Write(s);
         }
 
